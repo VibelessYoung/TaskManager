@@ -1,5 +1,9 @@
-import Image from "next/image";
+import Tasks from "./components/Tasks";
 
 export default function Home() {
-  return <></>;
+  return (
+    <div className="bg-gray-900 w-full">
+      <Tasks />
+    </div>
+  );
 }
