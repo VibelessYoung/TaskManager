@@ -51,7 +51,7 @@ export default function Page() {
   }
 
   return (
-    <div className="w-full bg-gray-950 text-white flex justify-center items-center p-6">
+    <div className="w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white flex justify-center items-center p-6">
       <div className="w-full max-w-4xl rounded-3xl bg-gray-900 border border-gray-800 shadow-2xl p-6">
         <div className="flex items-center justify-between mb-8">
           <button
