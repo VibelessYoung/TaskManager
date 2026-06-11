@@ -1,37 +1,127 @@
 import React from "react";
 
-function page() {
+function Page() {
   return (
-    <div className="flex flex-col items-center w-full p-5 bg-gray-900">
-      <h1 className="text-3xl text-white font-bold">Set-Up Your Profile</h1>
-      <form action="" className="flex gap-10 w-full">
-        <div className="flex flex-col">
-          <p className="text-white">Name</p>
-          <input
-            type="text"
-            className="border-2 border-white rounded-sm p-1.5 text-white"
-          />
+    <div className="w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-6">
+      <div
+        className="
+          w-full
+          max-w-3xl
+          rounded-3xl
+          border border-white/10
+          bg-white/5
+          backdrop-blur-xl
+          p-8 md:p-10
+          shadow-2xl
+        "
+      >
+        {/* Header */}
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-black text-white">
+            Set Up Your Profile
+          </h1>
+
+          <p className="text-gray-400 mt-3">
+            Personalize your account and get started.
+          </p>
         </div>
-        <div className="flex flex-col">
-          <p className="text-white">LastName</p>
-          <input
-            type="text"
-            className="border-2 border-white rounded-sm p-1.5 text-white"
-          />
-        </div>
-        <div className="flex flex-col">
-          <p className="text-white">PassWord</p>
-          <input
-            type="password"
-            className="border-2 border-white rounded-sm p-1.5 text-white"
-          />
-        </div>
-        <button className="bg-white rounded-sm px-5 text-black">
-            Submit
-        </button>
-      </form>
+
+        <form className="space-y-6">
+          {/* Name + Last Name */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-gray-300 mb-2">First Name</label>
+
+              <input
+                type="text"
+                placeholder="John"
+                className="
+                  w-full
+                  rounded-2xl
+                  bg-white/5
+                  border border-white/10
+                  px-4 py-3
+                  text-white
+                  outline-none
+                  focus:border-cyan-500
+                  focus:ring-4
+                  focus:ring-cyan-500/20
+                  transition-all
+                "
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-300 mb-2">Last Name</label>
+
+              <input
+                type="text"
+                placeholder="Doe"
+                className="
+                  w-full
+                  rounded-2xl
+                  bg-white/5
+                  border border-white/10
+                  px-4 py-3
+                  text-white
+                  outline-none
+                  focus:border-cyan-500
+                  focus:ring-4
+                  focus:ring-cyan-500/20
+                  transition-all
+                "
+              />
+            </div>
+          </div>
+
+          {/* Password */}
+          <div>
+            <label className="block text-gray-300 mb-2">Password</label>
+
+            <input
+              type="password"
+              placeholder="••••••••"
+              className="
+                w-full
+                rounded-2xl
+                bg-white/5
+                border border-white/10
+                px-4 py-3
+                text-white
+                outline-none
+                focus:border-cyan-500
+                focus:ring-4
+                focus:ring-cyan-500/20
+                transition-all
+              "
+            />
+          </div>
+
+          {/* Submit */}
+          <button
+            type="submit"
+            className="
+              w-full
+              py-4
+              rounded-2xl
+              font-semibold
+              bg-gradient-to-r
+              from-cyan-500
+              to-blue-600
+              text-white
+              hover:scale-[1.02]
+              transition-all
+              duration-300
+              shadow-lg
+              shadow-cyan-500/20
+            "
+          >
+            Save Profile
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
 
-export default page;
+export default Page;
