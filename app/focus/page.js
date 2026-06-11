@@ -90,73 +90,108 @@ export default function Pomodoro() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-gray-950 text-white gap-8">
-      <h2 className="text-xl opacity-70">
-        {isWork ? "🔥 Focus Time" : "☕ Break Time"}
-      </h2>
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-gray-950 to-black text-white gap-10 p-6">
+      {/* Title */}
+      <div className="text-center">
+        <h2 className="text-sm tracking-widest text-cyan-400 uppercase">
+          {isWork ? "🔥 Focus Session" : "☕ Break Session"}
+        </h2>
 
-      <div className="relative w-52 h-52">
-        <svg className="w-full h-full">
-          <circle
-            cx="50%"
-            cy="50%"
-            r="90"
-            stroke="#2d2d2d"
-            strokeWidth="10"
-            fill="none"
-          />
+        <p className="text-3xl font-black mt-2">Stay in the zone</p>
+      </div>
 
-          <circle
-            cx="50%"
-            cy="50%"
-            r="90"
-            stroke={isWork ? "#22c55e" : "#3b82f6"}
-            strokeWidth="10"
-            fill="none"
-            strokeDasharray={565}
-            strokeDashoffset={565 - (565 * progress) / 100}
-            strokeLinecap="round"
-            style={{ transition: "stroke-dashoffset 1s linear" }}
-          />
-        </svg>
+      {/* Card */}
+      <div className="relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-[32px] p-10 shadow-2xl flex flex-col items-center gap-6">
+        {/* Circle */}
+        <div className="relative w-56 h-56">
+          <svg className="w-full h-full">
+            {/* Background Circle */}
+            <circle
+              cx="50%"
+              cy="50%"
+              r="90"
+              stroke="rgba(255,255,255,0.08)"
+              strokeWidth="10"
+              fill="none"
+            />
 
-        <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold">
-          {format(time)}
+            {/* Progress */}
+            <circle
+              cx="50%"
+              cy="50%"
+              r="90"
+              stroke="url(#gradient)"
+              strokeWidth="10"
+              fill="none"
+              strokeDasharray={565}
+              strokeDashoffset={565 - (565 * progress) / 100}
+              strokeLinecap="round"
+              style={{ transition: "stroke-dashoffset 1s linear" }}
+            />
+
+            {/* Gradient */}
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#22d3ee" />
+                <stop offset="100%" stopColor="#a855f7" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* Time */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-5xl font-black tracking-wider">
+              {format(time)}
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="text-sm opacity-70">Sessions completed: {sessions}</div>
+        {/* Sessions */}
+        <div className="text-sm text-gray-400">
+          Sessions completed:{" "}
+          <span className="text-cyan-400 font-semibold">{sessions}</span>
+        </div>
 
-      <div className="flex gap-4">
-        <button
-          onClick={start}
-          className="px-5 py-2 bg-green-600 rounded-lg hover:bg-green-500"
-        >
-          Start
-        </button>
+        {/* Main Controls */}
+        <div className="flex gap-3 flex-wrap justify-center">
+          <button
+            onClick={start}
+            className="px-6 py-3 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-400 hover:bg-green-500 hover:text-white hover:scale-105 transition-all duration-300"
+          >
+            Start
+          </button>
 
-        <button
-          onClick={pause}
-          className="px-5 py-2 bg-yellow-500 rounded-lg hover:bg-yellow-400 text-black"
-        >
-          Pause
-        </button>
+          <button
+            onClick={pause}
+            className="px-6 py-3 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 hover:bg-yellow-500 hover:text-black hover:scale-105 transition-all duration-300"
+          >
+            Pause
+          </button>
 
-        <button
-          onClick={reset}
-          className="px-5 py-2 bg-red-600 rounded-lg hover:bg-red-500"
-        >
-          Reset
-        </button>
-      </div>
-      <div className="flex gap-4">
-        <button onClick={minusTime} className="px-4 py-2 bg-red-600 rounded">
-          -5 min
-        </button>
+          <button
+            onClick={reset}
+            className="px-6 py-3 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500 hover:text-white hover:scale-105 transition-all duration-300"
+          >
+            Reset
+          </button>
+        </div>
 
-        <button onClick={addTime} className="px-4 py-2 bg-green-600 rounded">
-          +5 min
-        </button>
+        {/* Time Controls */}
+        <div className="flex gap-3">
+          <button
+            onClick={minusTime}
+            className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-105 transition-all"
+          >
+            -5 min
+          </button>
+
+          <button
+            onClick={addTime}
+            className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-105 transition-all"
+          >
+            +5 min
+          </button>
+        </div>
       </div>
     </div>
   );
