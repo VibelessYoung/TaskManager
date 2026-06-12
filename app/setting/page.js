@@ -1,9 +1,12 @@
-"use client"
+"use client";
 import React from "react";
 
 function Page() {
   const deleteProfile = () => {
     localStorage.removeItem("user");
+  };
+  const deleteAll = () => {
+    localStorage.clear();
   };
   return (
     <div className="w-full bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 p-6 md:p-12">
@@ -76,6 +79,37 @@ function Page() {
                 "
               >
                 Delete Account
+              </button>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-red-500/20 bg-red-500/5 p-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+              <div>
+                <h2 className="text-xl font-semibold text-white">
+                  Delete All Data
+                </h2>
+
+                <p className="text-gray-400 mt-2">
+                  Delete your all data in this app.
+                </p>
+              </div>
+
+              <button
+                onClick={deleteAll}
+                className="
+                  px-5 py-3
+                  rounded-2xl
+                  bg-red-600
+                  text-white
+                  font-semibold
+                  hover:bg-red-500
+                  hover:scale-105
+                  transition-all
+                  duration-300
+                "
+              >
+                Delete All Data
               </button>
             </div>
           </div>
