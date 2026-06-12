@@ -1,6 +1,16 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 function Page() {
+  const [name, SetName] = useState("");
+  const [lastName, SetLastName] = useState("");
+  const [pass, SetPass] = useState("");
+  const SaveProfile = (e) => {
+    e.preventDefault();
+    localStorage.setItem("name", name);
+    localStorage.setItem("lastName", lastName);
+    localStorage.setItem("pass", pass);
+  };
   return (
     <div className="w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-6">
       <div
@@ -34,6 +44,8 @@ function Page() {
 
               <input
                 type="text"
+                value={name}
+                onChange={(e) => SetName(e.target.value)}
                 placeholder="John"
                 className="
                   w-full
@@ -56,6 +68,8 @@ function Page() {
 
               <input
                 type="text"
+                value={lastName}
+                onChange={(e) => SetLastName(e.target.value)}
                 placeholder="Doe"
                 className="
                   w-full
@@ -80,6 +94,8 @@ function Page() {
 
             <input
               type="password"
+              value={pass}
+              onChange={(e) => SetPass(e.target.value)}
               placeholder="••••••••"
               className="
                 w-full
@@ -100,6 +116,7 @@ function Page() {
           {/* Submit */}
           <button
             type="submit"
+            onClick={SaveProfile}
             className="
               w-full
               py-4
