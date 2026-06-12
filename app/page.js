@@ -1,4 +1,15 @@
+"use client";
+import { useEffect, useState } from "react";
+
 export default function Home() {
+  const [userName, setUserName] = useState("");
+  useEffect(() => {
+    const profile = localStorage.getItem("user");
+    if (profile) {
+      const data = JSON.parse(profile);
+      setUserName(data.name);
+    }
+  }, []);
   return (
     <main className="w-full bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 relative overflow-hidden">
       {/* Background Blur */}
@@ -16,7 +27,7 @@ export default function Home() {
             HELLO
             <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
               {" "}
-              USER
+              {userName ? `${userName}` : "USER"}
             </span>
           </h1>
 

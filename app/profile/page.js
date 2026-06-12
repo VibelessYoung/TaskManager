@@ -5,11 +5,14 @@ function Page() {
   const [name, SetName] = useState("");
   const [lastName, SetLastName] = useState("");
   const [pass, SetPass] = useState("");
+  const profile = {
+    name,
+    lastName,
+    pass,
+  };
   const SaveProfile = (e) => {
     e.preventDefault();
-    localStorage.setItem("name", name);
-    localStorage.setItem("lastName", lastName);
-    localStorage.setItem("pass", pass);
+    localStorage.setItem("user", JSON.stringify(profile));
   };
   return (
     <div className="w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-6">
