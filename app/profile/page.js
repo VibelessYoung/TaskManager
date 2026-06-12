@@ -1,10 +1,20 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Page() {
   const [name, SetName] = useState("");
   const [lastName, SetLastName] = useState("");
   const [pass, SetPass] = useState("");
+  useEffect(() => {
+    const profile = localStorage.getItem("user");
+
+    if (profile) {
+      const data = JSON.parse(profile);
+
+      SetName(data.name);
+      SetLastName(data.lastName);
+    }
+  }, []);
   const profile = {
     name,
     lastName,

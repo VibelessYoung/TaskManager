@@ -1,6 +1,10 @@
+"use client"
 import React from "react";
 
 function Page() {
+  const deleteProfile = () => {
+    localStorage.removeItem("user");
+  };
   return (
     <div className="w-full bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 p-6 md:p-12">
       <div className="max-w-4xl mx-auto">
@@ -58,6 +62,7 @@ function Page() {
               </div>
 
               <button
+                onClick={deleteProfile}
                 className="
                   px-5 py-3
                   rounded-2xl
