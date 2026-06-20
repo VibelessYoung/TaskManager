@@ -2,6 +2,13 @@
 import React, { useEffect, useState } from "react";
 
 function Tasks() {
+  const statusColors = {
+    Todo: "bg-red-500/20 text-red-400 border-red-500/20",
+
+    "In Progress": "bg-yellow-500/20 text-yellow-400 border-yellow-500/20",
+
+    Completed: "bg-green-500/20 text-green-400 border-green-500/20",
+  };
   const [tasks, setTasks] = useState([]);
   useEffect(() => {
     const storesTasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -40,16 +47,14 @@ function Tasks() {
               </div>
 
               <span
-                className="
-              px-3 py-1
-              text-xs
-              font-semibold
-              rounded-full
-              bg-yellow-500/20
-              text-yellow-400
-              border
-              border-yellow-500/20
-            "
+                className={`
+                px-3 py-1
+                text-xs
+                font-semibold
+                rounded-full
+                border
+                ${statusColors[task.status]}
+              `}
               >
                 {task.status}
               </span>
