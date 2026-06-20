@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import Modal from "./Modal";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-gray-950/95 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -37,9 +40,13 @@ function Header() {
             Dashboard
           </button>
 
-          <button className="px-4 py-2 rounded-xl bg-cyan-500 text-black font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/30">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="px-4 py-2 rounded-xl bg-cyan-500 text-black font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/30"
+          >
             New Task
           </button>
+          {isOpen && <Modal />}
         </div>
       </div>
     </header>
