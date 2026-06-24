@@ -16,6 +16,8 @@ function Tasks() {
     setTasks(storesTasks);
   }, []);
   const deleteTask = (id) => {
+    const confirm = window.confirm("are you sure?");
+    if (!confirm) return;
     const updateTasks = tasks.filter((task) => task.id !== id);
     setTasks(updateTasks);
     localStorage.setItem("tasks", JSON.stringify(updateTasks));
