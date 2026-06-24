@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Modal from "./Modal";
+import Link from "next/link";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,10 +40,11 @@ function Header() {
 
           {/* Right Side */}
           <div className="flex items-center gap-3">
-            <button className="hidden md:flex px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 transition-all duration-300">
-              Dashboard
-            </button>
-
+            <Link href={"/"}>
+              <button className="hidden md:flex px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 transition-all duration-300">
+                Main Page
+              </button>
+            </Link>
             <button
               onClick={() => setIsOpen(true)}
               className="px-4 py-2 rounded-xl bg-cyan-500 text-black font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/30"
