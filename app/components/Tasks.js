@@ -22,6 +22,19 @@ function Tasks() {
     setTasks(updateTasks);
     localStorage.setItem("tasks", JSON.stringify(updateTasks));
   };
+  const completeTask = (id) => {
+    const updateTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          status: "Completed",
+        };
+      }
+      return task;
+    });
+    setTasks(updateTasks);
+    localStorage.setItem("tasks", JSON.stringify(updateTasks));
+  };
   return (
     <div className="p-8 flex flex-wrap gap-6 w-full bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950">
       {tasks.map((task) => {
@@ -90,6 +103,7 @@ function Tasks() {
               <div className="flex gap-2">
                 {/* Complete */}
                 <button
+                  onClick={() => completeTask(task.id)}
                   className="
                 p-2.5
                 rounded-xl
