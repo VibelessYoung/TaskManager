@@ -138,6 +138,7 @@ export default function NewTaskModal({ onClose }) {
                 flex-1
                 bg-indigo-600
                 hover:bg-indigo-500
+                text-white
                 rounded-xl
                 p-3
                 font-semiboldtext-white

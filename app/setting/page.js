@@ -3,9 +3,28 @@ import React from "react";
 
 function Page() {
   const deleteProfile = () => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete your profile?",
+    );
+
+    if (!confirmDelete) return;
+
     localStorage.removeItem("user");
   };
+  const deleteTasks = () => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete all tasks?",
+    );
+
+    if (!confirmDelete) return;
+
+    localStorage.removeItem("tasks");
+  };
   const deleteAll = () => {
+    const confirmDelete = window.confirm("Delete all application data?");
+
+    if (!confirmDelete) return;
+
     localStorage.clear();
   };
   return (
@@ -33,6 +52,7 @@ function Page() {
               </div>
 
               <button
+                onClick={deleteTasks}
                 className="
                   px-5 py-3
                   rounded-2xl
