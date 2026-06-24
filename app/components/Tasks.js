@@ -40,13 +40,13 @@ function Tasks() {
   };
   return (
     <>
-      <div className="p-8 flex flex-wrap gap-6 w-full bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950">
+      <div className="p-8 flex flex-wrap gap-6 w-full">
         {tasks.map((task) => {
           return (
             <div
               key={task.id}
               className="
-          h-72
+          
           w-full
           sm:w-[320px]
           rounded-3xl
@@ -102,8 +102,6 @@ function Tasks() {
 
               {/* Footer */}
               <div className="flex justify-between items-center mt-5">
-                <span className="text-xs text-gray-500">Created 2h ago</span>
-
                 <div className="flex gap-2">
                   {/* Complete */}
                   <button

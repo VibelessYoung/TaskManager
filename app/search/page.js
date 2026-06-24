@@ -94,7 +94,7 @@ function Page() {
               <div
                 key={task.id}
                 className="
-          h-72
+          
           w-full
           sm:w-[320px]
           rounded-3xl
@@ -151,9 +151,9 @@ function Page() {
                 </div>
 
                 {/* Footer */}
-                <div className="flex justify-between items-center mt-5">
+                {/* <div className="flex justify-between items-center mt-5">
                   <span className="text-xs text-gray-500">Created 2h ago</span>
-                </div>
+                </div> */}
               </div>
             );
           })}
