@@ -15,6 +15,11 @@ function Tasks() {
     console.log(storesTasks);
     setTasks(storesTasks);
   }, []);
+  const deleteTask = (id) => {
+    const updateTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updateTasks);
+    localStorage.setItem("tasks", JSON.stringify(updateTasks));
+  };
   return (
     <div className="p-8 flex flex-wrap gap-6 w-full bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950">
       {tasks.map((task) => {
@@ -139,6 +144,7 @@ function Tasks() {
 
                 {/* Delete */}
                 <button
+                  onClick={() => deleteTask(task.id)}
                   className="
                 p-2.5
                 rounded-xl
